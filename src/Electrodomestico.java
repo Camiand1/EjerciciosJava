@@ -184,7 +184,7 @@ public class Television extends Electrodomestico{
 
         for(int i=0; i<Electrodomesticos.length; i++){
             if(Electrodomesticos[i] instanceof Electrodomestico){
-                precioFElectrodomestico = Electrodomesticos[i].precioFinal(git);
+                precioFElectrodomestico = Electrodomesticos[i].precioFinal();
 
             }else if(Electrodomesticos[i] instanceof Lavadora){
                 precioFLavadora = Electrodomesticos[i].precioFinal();
