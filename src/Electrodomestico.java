@@ -1,52 +1,53 @@
 public class Electrodomestico {
 
-    public int precio = 100;
+    public int precioBase = 100;
     public String color = "blanco";
-    public  char consumoE = 'F';
+    public  char consumoEnergetico = 'F';
     public int peso = 5;
+    public int precioFinal = precioFinal(precioBase);
 
     public Electrodomestico(){
-        comprobarConsumo(consumoE);
-        comprobarColor(color);
-        precioFinal(precio);
+
     }
-    public Electrodomestico(int precio, int peso) {
-        this.precio = precio;
+
+
+    public Electrodomestico(int precioBase, int peso) {
+        this.precioFinal = precioBase;
         this.peso = peso;
     }
 
-    public Electrodomestico(int precio, String color, char consumoE, int peso) {
-        this.precio = precio;
+    public Electrodomestico(int precioBase, String color, char consumoEnergetico, int peso) {
+        this.precioFinal = precioBase;
         this.color = color;
-        this.consumoE = consumoE;
+        this.consumoEnergetico = consumoEnergetico;
         this.peso = peso;
-        comprobarConsumo(consumoE);
+        comprobarConsumoEnergetico(consumoEnergetico);
         comprobarColor(color);
-        precioFinal(precio);
+        precioFinal(precioBase);
     }
 
-    public int getPrecio() {
-        return precio;
+    public int getPrecioBase() {
+        return precioFinal;
     }
 
     public String getColor() {
         return color;
     }
 
-    public char getConsumoE() {
-        return consumoE;
+    public char getConsumoEnergetico() {
+        return consumoEnergetico;
     }
 
     public int getPeso() {
         return peso;
     }
 
-    private void comprobarConsumo(char letra){
+    private void comprobarConsumoEnergetico(char letra){
 
         if(letra=='A' || letra=='B'|| letra=='C'|| letra=='D'|| letra=='E'|| letra=='F'){
-            consumoE=letra;
+            consumoEnergetico=letra;
         }else{
-            consumoE='F';
+            consumoEnergetico='F';
         }
     }
 
@@ -57,119 +58,40 @@ public class Electrodomestico {
         }
     }
 
-    public int precioFinal(double precio){
-        switch(consumoE){
+    public int precioFinal(int precioBase){
+        switch(consumoEnergetico){
             case 'A':{
-                this.precio =100;
+                this.precioFinal = precioBase + 100;
             } case 'B':{
-                this.precio =80;
+                this.precioFinal =precioBase + 80;
             } case 'C':{
-                this.precio =60;
+                this.precioFinal =precioBase + 60;
             } case 'D':{
-                this.precio =50;
+                this.precioFinal =precioBase + 50;
             } case'E':{
-                this.precio =60;
+                this.precioFinal =precioBase + 60;
             } case 'F':{
-                this.precio =10;
+                this.precioFinal =precioBase + 10;
             }
         }if (peso>=0 && peso<=19){
-            this.precio =10;
+            this.precioFinal =precioFinal + 10;
         }if (peso>=20 && peso<=49){
-            this.precio =50;
+            this.precioFinal =precioFinal + 50;
         }if (peso>=50 && peso<=79){
-            this.precio =80;
+            this.precioFinal =precioFinal + 80;
         }if (peso>80){
-            this.precio =100;
-        }return this.precio;
-    }
-}
-
-public class Lavadora extends Electrodomestico{
-
-    private static Object Electrodomestico;
-    private int carga=5;
-
-    public Lavadora(){
+            this.precioFinal =precioFinal + 100;
+        }return this.precioFinal;
     }
 
-    public Lavadora(int precio, int peso) {
-        super(precio, peso);
-    }
 
-    public Lavadora(String base) {
-        super();
-    }
-
-    public Lavadora(int precio, String color, char consumoE, int peso) {
-        super(precio, color, consumoE, peso);
-    }
-
-    public Lavadora(int precio, String color, char consumoE, int peso, int carga) {
-        super(precio, color, consumoE, peso);
-        this.carga = carga;
-    }
-
-    public int getCarga() {
-        return carga;
-    }
-
-    @Override
-    public int precioFinal(double precio) {
-        if (carga>30){
-            this.precio =50;
-        }
-        return super.precioFinal(precio);
-    }
-}
-
-public class Television extends Electrodomestico{
-
-    private static Object Electrodomestico;
-    public int resolucion = 20;
-    public boolean sincronizadorTDT = false;
-
-    public Television(){
-    }
-
-    public Television(int precio, int peso) {
-        super(precio, peso);
-    }
-
-    public Television(int precio, String color, char consumoE, int peso, int resolucion, boolean sincronizadorTDT) {
-        super(precio, color, consumoE, peso);
-        this.resolucion = resolucion;
-        this.sincronizadorTDT = sincronizadorTDT;
-    }
-
-    public int getResolucion() {
-        return resolucion;
-    }
-
-    public boolean SincronizadorTDT() {
-        return sincronizadorTDT;
-    }
-
-    @Override
-    public int precioFinal(int precio) {
-        int price;
-        int priceNew = 0;
-        if(resolucion>40){
-            price= (int) (precio*(0.3));
-            priceNew= (int) (price+precio);
-            precio=priceNew;
-        }if(sincronizadorTDT=true){
-            precio=priceNew +50;
-        }
-        return super.precioFinal(precio);
-    }
 
     public static void main(String[] args){
         Electrodomestico[] Electrodomesticos = new Electrodomestico[10];
-        Electrodomesticos[0] = new Lavadora(80,40);
+        Electrodomesticos[0] = new Electrodomestico(80,40);
         Electrodomesticos[1] = new Television(90, 55);
-        Electrodomesticos[1] = new Lavadora(100,380);
         Electrodomesticos[2] = new Lavadora(70,50);
-        Electrodomesticos[3] = new Lavadora(100,"negro", 'E',50);
+        Electrodomesticos[3] = new Lavadora(45,40);
         Electrodomesticos[4] = new Television(55,"rojo",'D',48,55,false);
         Electrodomesticos[5] = new Television(99,"gris",'C',75,30,true);
         Electrodomesticos[6] = new Television(60,"morado",'B',29,30,false);
@@ -177,30 +99,36 @@ public class Television extends Electrodomestico{
         Electrodomesticos[8] = new Lavadora(80,50);
         Electrodomesticos[9] = new Lavadora(99,"gris", 'D',65,60);
 
-        boolean precioFElectrodomestico;
-        boolean precioFLavadora;
-        boolean precioFTelevision;
-        boolean precioFi;
+        String precioFinalElectrodomestico = "";
+        String precioFinalLavadora = "";
+        String precioFinalTelevision = "";
+        //int precioFinal = 0;
 
-        for(int i=0; i<Electrodomesticos.length; i++){
-            if(Electrodomesticos[i] instanceof Electrodomestico){
-                precioFElectrodomestico = Electrodomesticos[i].precioFinal();
 
-            }else if(Electrodomesticos[i] instanceof Lavadora){
-                precioFLavadora = Electrodomesticos[i].precioFinal();
+        for(int i = 0; i < Electrodomesticos.length; i++){
 
-            } else if(Electrodomesticos[i] instanceof Television){
-                precioFTelevision = Electrodomesticos[i].precioFinal();
+            if(Electrodomesticos[i] instanceof Lavadora){
+                precioFinalLavadora = precioFinalLavadora + Electrodomesticos[i].precioFinal(i)+ ", ";
 
-            }
+
+            }else if(Electrodomesticos[i] instanceof Television) {
+            precioFinalTelevision = precioFinalTelevision + Electrodomesticos[i].precioFinal(i)+ ", ";
+
+            }else if(Electrodomesticos[i] instanceof Electrodomestico){
+            precioFinalElectrodomestico = precioFinalElectrodomestico + Electrodomesticos[i].precioFinal(i)+ ", ";
 
         }
-        precioFi = precioFElectrodomestico + precioFLavadora + precioFTelevision;
-        System.out.println("El precio del Electrodoméstico es "+precioFElectrodomestico);
-        System.out.println("El precio de la Lavadora es "+precioFLavadora);
-        System.out.println("El precio del Televisor es "+precioFTelevision);
-        System.out.println("El resultado final es: "+ precioFi);
+
+
+    }
+
+        System.out.println("El precio de la lavadora es: "+precioFinalLavadora);
+        System.out.println("El precio del televisor es: "+precioFinalTelevision);
+        System.out.println("El precio del electrodomestico es: "+precioFinalElectrodomestico);
+
 
     }
 
 }
+
+
