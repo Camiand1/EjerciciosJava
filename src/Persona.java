@@ -1,9 +1,9 @@
-/*
 
-import java.util.Random;
+
 import java.util.Scanner;
 
-public class persona {
+public class Persona {
+    private  int PESO_BAJO = -1;
 
     private String nombre="";
     private int edad = 0;
@@ -13,10 +13,10 @@ public class persona {
     private int altura = 0;
 
 
-    public persona(){
+    public Persona(){
     }
 
-    public persona(String nombre, int edad, char sexo){
+    public Persona(String nombre, int edad, char sexo){
         this.nombre = nombre;
         this.edad = edad;
         this.sexo = sexo;
@@ -24,7 +24,7 @@ public class persona {
     }
 
 
-    public persona(String nombre, int edad, int DNI, char sexo, int peso, int altura) {
+    public Persona(String nombre, int edad, int DNI, char sexo, int peso, int altura) {
         this.nombre = nombre;
         this.edad = edad;
         this.DNI = DNI;
@@ -36,9 +36,8 @@ public class persona {
     public double calcularIMC() {
         double calculoIMC;
         calculoIMC = (peso/(Math.pow(altura,2)));
-        int calIMC = 0;
         if(calculoIMC<20){
-            System.out.println("1 - Su peso es ideal\n");
+            System.out.println(PESO_BAJO + " - Su peso es ideal\n");
         }if (calculoIMC >=20 &&  calculoIMC <=25){
             System.out.println("0 - Está por debajo de su peso ideal\n");
         }if(calculoIMC >25){
@@ -122,7 +121,7 @@ public class persona {
         alturaIngresado = teclado.nextInt();
 
 
-        persona persona1 = new persona();
+        Persona persona1 = new Persona();
         persona1.nombre=nombreIngresado;
         persona1.edad=edadIngresado;
         persona1.peso=pesoIngresado;
@@ -149,7 +148,7 @@ public class persona {
         sexoIngresado1 = teclado1.next().charAt(0);
 
 
-        persona persona2 = new persona();
+        Persona persona2 = new Persona();
         persona2.nombre=nombreIngresado1;
         persona2.edad=edadIngresado1;
         persona2.sexo=sexoIngresado1;
@@ -159,7 +158,7 @@ public class persona {
 
 
 
-        persona persona3 = new persona();
+        Persona persona3 = new Persona();
         persona3.setNombre("Jaime");
         persona3.setEdad(24);
         persona3.setPeso(80);
@@ -175,4 +174,3 @@ public class persona {
     }
 }
 
- */

@@ -1,10 +1,13 @@
 public class Electrodomestico {
 
-    public int precioBase = 100;
-    public String color = "blanco";
-    public  char consumoEnergetico = 'F';
-    public int peso = 5;
-    public int precioFinal = precioFinal(precioBase);
+    int PESO_BASE = 5;
+    int PRECIO_BASE = 100;
+
+    public int precioBase = PRECIO_BASE;
+    private String color = "blanco";
+    private char consumoEnergetico = 'F';
+    private int peso = PESO_BASE;
+    int precioFinal = precioFinal(precioBase);
 
     public Electrodomestico(){
 
@@ -52,9 +55,16 @@ public class Electrodomestico {
     }
 
     private void comprobarColor(String color){
-        if(color=="blanco" || color=="negro" || color=="rojo" || color=="azul" || color=="gris"){
-        }else{
-            color="blanco";
+        switch (color) {
+            case "blanco":
+            case "negro":
+            case "rojo":
+            case "azul":
+            case "gris":
+                break;
+            default:
+                color = "blanco";
+                break;
         }
     }
 
@@ -114,7 +124,7 @@ public class Electrodomestico {
             }else if(Electrodomesticos[i] instanceof Television) {
             precioFinalTelevision = precioFinalTelevision + Electrodomesticos[i].precioFinal(i)+ ", ";
 
-            }else if(Electrodomesticos[i] instanceof Electrodomestico){
+            }else if(Electrodomesticos[i] != null){
             precioFinalElectrodomestico = precioFinalElectrodomestico + Electrodomesticos[i].precioFinal(i)+ ", ";
 
         }
