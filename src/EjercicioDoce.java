@@ -1,75 +1,82 @@
 import java.util.Scanner;
 
 public class EjercicioDoce {
-    public  void ejercicioDoce() {
-        String palabra1 = "";
-        String palabra2 = "";
+
+    private String palabra1 = "";
+    private String palabra2 = "";
+
+    public void introducirPalabra() {
 
         Scanner teclado = new Scanner(System.in);
         System.out.println("Introduzca la primer palabra: ");
         palabra1 = teclado.nextLine();
         System.out.println("Introduzca la segunda palabra: ");
         palabra2 = teclado.nextLine();
+    }
 
-        int contadorP1a = 0;
-        int contadorP1e = 0;
-        int contadorP1i = 0;
-        int contadorP1o = 0;
-        int contadorP1u = 0;
-        int contadorP2a = 0;
-        int contadorP2e = 0;
-        int contadorP2i = 0;
-        int contadorP2o = 0;
-        int contadorP2u = 0;
+    public void diferenciasPalabras() {
 
-        if (palabra1.equals(palabra2)) {
+        int contPalabra1Vocala = 0;
+        int contPalabra1Voca1e = 0;
+        int contPalabra1Vocali = 0;
+        int contPalabra1Vocalo = 0;
+        int contPalabra1Vocalu = 0;
+        int contPalabra2Vocala = 0;
+        int contPalabra2Vocale = 0;
+        int contPalabra2Vocali = 0;
+        int contPalabra2Vovalo = 0;
+        int contPalabra2Vocalu = 0;
+
+        int palabraUno = palabra1.toLowerCase().length();
+        int palabraDos = palabra2.toLowerCase().length();
+
+        if (palabra1.equalsIgnoreCase(palabra2)) {
             System.out.println("Las palabras son iguales");
-        }
-        if (palabra1 != palabra2) {
-            //System.out.println("Una palabra es mas larga");
-            if (palabra1.length() > palabra2.length()) {
-                System.out.println("La palabra " + palabra1 + " es mas larga");
-            } else {
-                System.out.println("La palabra " + palabra2 + " es mas larga");
-            }
-            for (int i = 0; i < palabra1.length(); i++) {
-                if (palabra1.charAt(i) == 'a') {
-                    contadorP1a++;
-                }
-                if (palabra1.charAt(i) == 'e') {
-                    contadorP1e++;
-                }
-                if (palabra1.charAt(i) == 'i') {
-                    contadorP1i++;
-                }
-                if (palabra1.charAt(i) == 'o') {
-                    contadorP1o++;
-                }
-                if (palabra1.charAt(i) == 'u') {
-                    contadorP1u++;
-                }
-            }
-            System.out.println("La palabra " + palabra1 + " contiene " + contadorP1a + " vocales a, " + contadorP1e + " vocales e, " + contadorP1i + " vocales i, " + contadorP1o + " vocales o y " + contadorP1u + " vocales u");
-            for (int i = 0; i < palabra2.length(); i++) {
-                if (palabra2.charAt(i) == 'a') {
-                    contadorP2a++;
-                }
-                if (palabra2.charAt(i) == 'e') {
-                    contadorP2e++;
-                }
-                if (palabra2.charAt(i) == 'i') {
-                    contadorP2i++;
-                }
-                if (palabra2.charAt(i) == 'o') {
-                    contadorP2o++;
-                }
-                if (palabra2.charAt(i) == 'u') {
-                    contadorP2u++;
-                }
-            }
-            System.out.println("La palabra " + palabra2 + " contiene " + contadorP2a + " vocales a, " + contadorP2e + " vocales e, " + contadorP2i + " vocales i, " + contadorP2o + " vocales o y " + contadorP2u + " vocales u");
 
         }
+        if (palabraUno > palabraDos) {
+            System.out.println("La palabra " + palabra1 + " es mas larga");
+        }
+        if(palabraDos > palabraUno) {
+            System.out.println("La palabra " + palabra2 + " es mas larga");
+        }
+
+        for (int i = 0; i < palabra1.length(); i++) {
+            if (palabra1.charAt(i) == 'a') {
+                contPalabra1Vocala++;
+            }
+            if (palabra1.charAt(i) == 'e') {
+                contPalabra1Voca1e++;
+            }
+            if (palabra1.charAt(i) == 'i') {
+                contPalabra1Vocali++;
+            }
+            if (palabra1.charAt(i) == 'o') {
+                contPalabra1Vocalo++;
+            }
+            if (palabra1.charAt(i) == 'u') {
+                contPalabra1Vocalu++;
+            }
+        }
+        System.out.println("La palabra " + palabra1 + " contiene " + contPalabra1Vocala + " vocales a, " + contPalabra1Voca1e + " vocales e, " + contPalabra1Vocali + " vocales i, " + contPalabra1Vocalo + " vocales o y " + contPalabra1Vocalu + " vocales u");
+        for (int i = 0; i < palabra2.length(); i++) {
+            if (palabra2.charAt(i) == 'a') {
+                contPalabra2Vocala++;
+            }
+            if (palabra2.charAt(i) == 'e') {
+                contPalabra2Vocale++;
+            }
+            if (palabra2.charAt(i) == 'i') {
+                contPalabra2Vocali++;
+            }
+            if (palabra2.charAt(i) == 'o') {
+                contPalabra2Vovalo++;
+            }
+            if (palabra2.charAt(i) == 'u') {
+                contPalabra2Vocalu++;
+            }
+        }
+        System.out.println("La palabra " + palabra2 + " contiene " + contPalabra2Vocala + " vocales a, " + contPalabra2Vocale + " vocales e, " + contPalabra2Vocali + " vocales i, " + contPalabra2Vovalo + " vocales o y " + contPalabra2Vocalu + " vocales u");
+
     }
 }
-

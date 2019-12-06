@@ -1,8 +1,10 @@
 public class EjercicioSeis {
 
-    public void ejercicioSeis(){
-        String numerosPares = "";
-        String numerosImpares = "";
+    private String numerosPares = "";
+    private String numerosImpares = "";
+
+    public void numeroParImpar(){
+
         for (int i = 1; i <= 100; i++) {
             if (i % 2 == 0) {
                 numerosPares = numerosPares + i + ", ";

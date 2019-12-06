@@ -1,16 +1,19 @@
 public class EjercicioCinco {
 
-    public void ejercicioCinco() {
-        int primerNumero = 1;
-        int ultimoNumero = 100;
-        String numeroPares = "";
-        String numerosImpares = "";
+    private int primerNumero = 1;
+    private int ultimoNumero = 100;
+    private String numeroPares = "";
+    private String numerosImpares = "";
+
+    public void numerosParImpar() {
+
+
         while (primerNumero <= ultimoNumero) {
             if (primerNumero % 2 == 0) {
-                numeroPares = numeroPares + ", " + primerNumero;
+                numeroPares = numeroPares + primerNumero  + ", ";
                 primerNumero = primerNumero + 1;
             } else {
-                numerosImpares = numerosImpares + ", " + primerNumero;
+                numerosImpares = numerosImpares + primerNumero + ", ";
                 primerNumero = primerNumero + 1;
             }
         }

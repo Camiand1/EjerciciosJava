@@ -2,36 +2,41 @@ import java.util.Scanner;
 
 public class EjercicioOnce {
 
-    public void ejercicioOnce(){
-        String frase = "";
+    private String frase = "";
+
+    public void introducirFrase() {
+
         Scanner teclado = new Scanner(System.in);
         System.out.println("Introducir una frase: ");
         frase = teclado.nextLine();
-        int a;
-        int contadora = 0;
-        int contadore = 0;
-        int contadori = 0;
-        int contadoro = 0;
-        int contadoru = 0;
-        a = frase.length();
-        for (int i = 0; i < a; i++) {
+        frase = frase.toLowerCase();
+    }
+
+    public void contarVocales() {
+
+        int contadorVocala = 0;
+        int contadorVocale = 0;
+        int contadorVocali = 0;
+        int contadorVocalo = 0;
+        int contadorVocalu = 0;
+
+        for (int i = 0; i < frase.length(); i++) {
             if (frase.charAt(i) == 'a') {
-                contadora++;
+                contadorVocala++;
             }
             if (frase.charAt(i) == 'e') {
-                contadore++;
+                contadorVocale++;
             }
             if (frase.charAt(i) == 'i') {
-                contadori++;
+                contadorVocali++;
             }
             if (frase.charAt(i) == 'o') {
-                contadoro++;
+                contadorVocalo++;
             }
             if (frase.charAt(i) == 'u') {
-                contadoru++;
+                contadorVocalu++;
             }
         }
-        System.out.println("La palabra " + frase + " contiene " + contadora + " vocales a, " + contadore + " vocales e, " + contadori + " vocales i, " + contadoro + " vocales o y " + contadoru + " vocales u");
+        System.out.println("La palabra " + frase + " contiene " + contadorVocala + " vocales a, " + contadorVocale + " vocales e, " + contadorVocali + " vocales i, " + contadorVocalo + " vocales o y " + contadorVocalu + " vocales u");
     }
 }
-

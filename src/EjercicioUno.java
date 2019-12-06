@@ -1,6 +1,6 @@
 public class EjercicioUno {
 
-    public void ejercicioUno(){
+    public void compararNumero(){
 
         int primerNumero=1;
         int segundoNumero=2;
