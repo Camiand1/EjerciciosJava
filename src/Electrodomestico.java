@@ -96,7 +96,7 @@ public class Electrodomestico {
 
 
 
-    public static void main(String[] args){
+    public void ejercicioDieciSiete(){
         Electrodomestico[] Electrodomesticos = new Electrodomestico[10];
         Electrodomesticos[0] = new Electrodomestico(80,40);
         Electrodomesticos[1] = new Television(90, 55);
@@ -113,6 +113,7 @@ public class Electrodomestico {
         String precioFinalLavadora = "";
         String precioFinalTelevision = "";
         //int precioFinal = 0;
+        int sumaTotalElectrodomesticos = 0;
 
 
         for(int i = 0; i < Electrodomesticos.length; i++){
@@ -127,18 +128,17 @@ public class Electrodomestico {
             }else if(Electrodomesticos[i] != null){
             precioFinalElectrodomestico = precioFinalElectrodomestico + Electrodomesticos[i].precioFinal(i)+ ", ";
 
+            for (int j=0; j<Electrodomesticos.length; j++){
+                sumaTotalElectrodomesticos+=Electrodomesticos[j].precioFinal;
+            }
         }
-
-
     }
 
         System.out.println("El precio de la lavadora es: "+precioFinalLavadora);
         System.out.println("El precio del televisor es: "+precioFinalTelevision);
         System.out.println("El precio del electrodomestico es: "+precioFinalElectrodomestico);
-
-
+        System.out.println("El precio total de los Electrdomésticos es: "+sumaTotalElectrodomesticos);
     }
-
 }
 
 
